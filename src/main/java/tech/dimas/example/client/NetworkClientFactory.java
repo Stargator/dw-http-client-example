@@ -10,6 +10,7 @@ import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.hibernate.validator.constraints.NotEmpty;
+import tech.dimas.example.ExampleConfiguration;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -71,7 +72,7 @@ public class NetworkClientFactory {
         this.httpClient = httpClient;
     }
 
-    public NetworkClient build(Environment environment) {
+    public NetworkClient build(Environment environment, ExampleConfiguration configuration) {
 
         CredentialsProvider credsProvider = new BasicCredentialsProvider();
 
@@ -87,6 +88,6 @@ public class NetworkClientFactory {
                         .using(credsProvider)
                         .build("network-client");
 
-        return new NetworkClient(httpClient, baseUri);
+        return new NetworkClient(httpClient, baseUri, configuration);
     }
 }

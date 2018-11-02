@@ -5,7 +5,7 @@ import tech.dimas.example.client.NetworkClient;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
-@Path("/check-greeting")
+@Path("/network")
 public class NetworkResource {
 
     private final NetworkClient client;
@@ -15,8 +15,8 @@ public class NetworkResource {
     }
 
     @GET
-    public String checkGreeting() {
+    public String checkResponse() {
         String result = client.getNetworks();
-        return String.format("Greeting was \"%s\"", result);
+        return String.format("Response was \"%s\"", result);
     }
 }

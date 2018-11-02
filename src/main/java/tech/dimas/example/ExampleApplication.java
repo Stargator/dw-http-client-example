@@ -33,7 +33,7 @@ public class ExampleApplication extends Application<ExampleConfiguration> {
     public void run(final ExampleConfiguration configuration,
                     final Environment environment) {
 
-        NetworkClient client = configuration.getNetworkClient().build(environment);
+        NetworkClient client = configuration.getNetworkClient().build(environment, configuration);
 
         environment.jersey().register(new NetworkResource(client));
     }
