@@ -10,18 +10,18 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.function.Function;
 
-public class GreetingClient {
+public class NetworkClient {
 
     private final HttpClient client;
     private final URI baseUri;
 
-    public GreetingClient(HttpClient client, URI baseUri) {
+    public NetworkClient(HttpClient client, URI baseUri) {
         this.client = client;
         this.baseUri = baseUri;
     }
 
-    public String greet() {
-        return execute(HttpGet::new, "/greeting");
+    public String getNetworks() {
+        return execute(HttpGet::new, "/networks");
     }
 
     private String execute(Function<URI, HttpRequestBase> createRequest, String path) {
@@ -30,7 +30,7 @@ public class GreetingClient {
         try {
             return client.execute(request, new BasicResponseHandler());
         } catch (IOException e) {
-            throw new RuntimeException("Error checking greeting", e);
+            throw new RuntimeException("Error checking retrieving networks", e);
         }
     }
 }

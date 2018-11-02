@@ -2,7 +2,7 @@ package tech.dimas.example;
 
 import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import tech.dimas.example.client.GreetingClientFactory;
+import tech.dimas.example.client.NetworkClientFactory;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -10,15 +10,15 @@ import javax.validation.constraints.*;
 public class ExampleConfiguration extends Configuration {
     @Valid
     @NotNull
-    private GreetingClientFactory greetingClient = new GreetingClientFactory();
+    private NetworkClientFactory networkClient = new NetworkClientFactory();
 
-    @JsonProperty("greetingClient")
-    public GreetingClientFactory getGreetingClient() {
-        return greetingClient;
+    @JsonProperty("networkClient")
+    public NetworkClientFactory getNetworkClient() {
+        return networkClient;
     }
 
-    @JsonProperty("greetingClient")
-    public void setGreetingClient(GreetingClientFactory greetingClient) {
-        this.greetingClient = greetingClient;
+    @JsonProperty("networkClient")
+    public void setNetworkClient(NetworkClientFactory networkClient) {
+        this.networkClient = networkClient;
     }
 }

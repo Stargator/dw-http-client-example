@@ -15,7 +15,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.net.URI;
 
-public class GreetingClientFactory {
+public class NetworkClientFactory {
 
     @Valid
     @NotNull
@@ -71,7 +71,7 @@ public class GreetingClientFactory {
         this.httpClient = httpClient;
     }
 
-    public GreetingClient build(Environment environment) {
+    public NetworkClient build(Environment environment) {
 
         CredentialsProvider credsProvider = new BasicCredentialsProvider();
 
@@ -85,8 +85,8 @@ public class GreetingClientFactory {
                 new HttpClientBuilder(environment)
                         .using(this.httpClient)
                         .using(credsProvider)
-                        .build("greting-client");
+                        .build("network-client");
 
-        return new GreetingClient(httpClient, baseUri);
+        return new NetworkClient(httpClient, baseUri);
     }
 }

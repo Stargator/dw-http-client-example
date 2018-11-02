@@ -5,8 +5,8 @@ import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
 import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import tech.dimas.example.client.GreetingClient;
-import tech.dimas.example.resources.CheckGreetingResource;
+import tech.dimas.example.client.NetworkClient;
+import tech.dimas.example.resources.NetworkResource;
 
 public class ExampleApplication extends Application<ExampleConfiguration> {
 
@@ -33,9 +33,9 @@ public class ExampleApplication extends Application<ExampleConfiguration> {
     public void run(final ExampleConfiguration configuration,
                     final Environment environment) {
 
-        GreetingClient client = configuration.getGreetingClient().build(environment);
+        NetworkClient client = configuration.getNetworkClient().build(environment);
 
-        environment.jersey().register(new CheckGreetingResource(client));
+        environment.jersey().register(new NetworkResource(client));
     }
 
 }

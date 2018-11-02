@@ -9,24 +9,11 @@ How to start the Example application
 
 You can check the greeting client against the example basic auth server on heroku.
 
-To talk to the example server, set the following environment variables:
-
-```shell
-GREETING_BASE_URI=https://dw-basic-auth-example.herokuapp.com/
-GREETING_USERNAME=Anyone
-GREETING_PASSWORD=P@ssw0rd!
-```
-
-Or you can set the following config in config.yml:
+To talk to the example server, you can set the username and password in config.yml:
 
 ```yaml
-greetingClient:
-  baseUri: https://dw-basic-auth-example.herokuapp.com/
-  username: Anyone
-  password: P@ssw0rd!
+networkClient:
+  baseUri: https://fwd.app/api/
+  username: Anyone     # Use proper login credentials
+  password: P@ssw0rd!  # Use proper login credentials
 ```
-
-Health Check
----
-
-To see your applications health enter url `http://localhost:8080/admin/healthcheck`
